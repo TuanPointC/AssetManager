@@ -44,7 +44,7 @@ const Home = () => {
 
         }
         getAssignment()
-    }, [pageParams]);
+    }, []);
 
 
     const changePage = (pageNumber, pageSize) => {
@@ -180,6 +180,8 @@ const Home = () => {
                 visible={isCreateReturning}
                 setVisible={setIsCreateReturning}
                 rowWasEntered={rowWasEntered}
+                assignments={assignments}
+                setAssignments={setAssignments}
             />
             <Table
                 columns={columns}

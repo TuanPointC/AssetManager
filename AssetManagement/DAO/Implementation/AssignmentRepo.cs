@@ -45,7 +45,7 @@ namespace AssetManagement.DAO.Implementation
 
         public int CountAssignments()
         {
-            return _assetManagementContext.Assignments.ToList().Count();
+            return _assetManagementContext.Assignments.ToList().Count;
         }
 
         public void CreateAssignment(Assignment assignment)
@@ -103,7 +103,7 @@ namespace AssetManagement.DAO.Implementation
 
             IEnumerable<Assignment> listAssignment = _assetManagementContext.Assignments.Include(a => a.Asset).Include(a => a.User).Include(a => a.Admin).ToList();
 
-            listAssignment= listAssignment.Where(listAsm => listAsm.AssignedDate.Date <= DateTime.Now.Date.AddHours(+7) && listAsm.User.Location==pageParams.LocationUser);
+            listAssignment= listAssignment.Where(listAsm => listAsm.AssignedDate <= DateTime.Now);
             // filter by userId
             if (pageParams.filterUserId != null)
             {
